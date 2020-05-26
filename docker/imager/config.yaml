@@ -1,0 +1,6 @@
+config:
+  auth:
+    type: credentials
+  s3:
+    bucket_name: bucket-test
+    local_path: /tmp
