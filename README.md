@@ -56,6 +56,8 @@ docker build . -t "imager:0.0.1"
 
 Update the tag as you want. In the example above, we used ***0.0.1***.
 
+Push it to your repository if you're deploying to production, such as Docker Hub, Jfrog Artifactory, AWS ECR, etc.
+
 Then, run it locally with the following command:
 ```
 docker run -p 80:4567 imager:0.0.1
@@ -68,6 +70,9 @@ curl http://127.0.0.1/image.png?200x200
 
 In the example above, the application will look for the image named *image.png* in the bucket specified in the configuration file *config.yaml* and resize it to 200x200.
 
+## Things to consider
+- The AWS credentials need to be from the same region as the bucket, you will not be able to retrieve the image via application otherwise.
+- The application only works with AWS S3 as backend to store images. We are aware we need to improve this and we will probably work to implement other backends from different cloud providers, such as Google Cloud and Azure.
 
 ## What else?
 That's it for now, we hope to add more features in a near future. Please, feel free to open issues to help us to improve the application.
